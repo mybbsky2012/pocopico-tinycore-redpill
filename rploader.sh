@@ -8,15 +8,15 @@
 # User Variables :
 
 rploaderver="0.7.0.1"
-rploaderfile="https://raw.githubusercontent.com/pocopico/tinycore-redpill/main/rploader.sh"
-rploaderrepo="https://github.com/pocopico/tinycore-redpill/raw/main/"
+rploaderfile="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/rploader.sh"
+rploaderrepo="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/"
 
-redpillextension="https://github.com/pocopico/rp-ext/raw/main/redpill/rpext-index.json"
-modextention="https://github.com/pocopico/rp-ext/raw/main/rpext-index.json"
-modalias4="https://raw.githubusercontent.com/pocopico/tinycore-redpill/main/modules.alias.4.json.gz"
-modalias3="https://raw.githubusercontent.com/pocopico/tinycore-redpill/main/modules.alias.3.json.gz"
-dtcbin="https://raw.githubusercontent.com/pocopico/tinycore-redpill/main/dtc"
-dtsfiles="https://raw.githubusercontent.com/pocopico/tinycore-redpill/main"
+redpillextension="https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill/rpext-index.json"
+modextention="https://gitee.com/gebi1/pocopico-rp-ext/raw/main/rpext-index.json"
+modalias4="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/modules.alias.4.json.gz"
+modalias3="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/modules.alias.3.json.gz"
+dtcbin="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/dtc"
+dtsfiles="https://gitee.com/gebi1/pocopico-tinycore-redpill/main"
 
 fullupdatefiles="custom_config.json global_config.json modules.alias.3.json.gz modules.alias.4.json.gz rpext-index.json user_config.json dtc rploader.sh ds1621p.dts ds920p.dts"
 
@@ -325,7 +325,7 @@ function postupdate() {
 
         echo "bspatch does not exist, bringing over from repo"
 
-        curl --location "https://raw.githubusercontent.com/pocopico/tinycore-redpill/main/bspatch" -O
+        curl --location "https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/bspatch" -O
 
         chmod 777 bspatch
         sudo mv bspatch /usr/local/bin/
@@ -1352,7 +1352,7 @@ Actions: build, ext, download, clean, update, listmod, serialgen, identifyusb, s
 
                 example: 
 
-                rploader.sh ext apollolake-7.0.1-42218 add https://raw.githubusercontent.com/pocopico/rp-ext/master/e1000/rpext-index.json
+                rploader.sh ext apollolake-7.0.1-42218 add https://gitee.com/gebi1/pocopico-rp-ext/raw/main/e1000/rpext-index.json
 
                 or for auto detect use 
 
@@ -2090,7 +2090,7 @@ interactive)
     if [ -f interactive.sh ]; then
         . ./interactive.sh
     else
-        #curl --location --progress-bar "https://github.com/pocopico/tinycore-redpill/raw/main/interactive.sh" --output interactive.sh
+        #curl --location --progress-bar "https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/interactive.sh" --output interactive.sh
         #. ./interactive.sh
         exit 99
     fi
