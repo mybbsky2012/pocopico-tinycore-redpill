@@ -24,7 +24,7 @@
                 "branch": "master"
             },
             "redpill_load": {
-                "source_url": "https://gitee.com/gebi1/jumkey-redpill-load.git",
+                "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
                 "branch": "develop"
             },
             "add_extensions": [
@@ -110,7 +110,7 @@
                 "branch": "master"
             },
             "redpill_load": {
-                "source_url": "https://gitee.com/gebi1/redpill-load.git",
+                "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
                 "branch": "master"
             },
             "add_extensions": [
@@ -138,7 +138,7 @@
                 "branch": "master"
             },
             "redpill_load": {
-                "source_url": "https://gitee.com/gebi1/jumkey-redpill-load.git",
+                "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
                 "branch": "develop"
             },
             "add_extensions": [
@@ -315,7 +315,7 @@
                             "branch": "develop"
                     },
                     "redpill_load": {
-                            "source_url": "https://gitee.com/gebi1/jimmy-galland-redpill-load.git",
+                            "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
                             "branch": "develop"
                     },
 					 "add_extensions": [
@@ -405,7 +405,7 @@
                             "branch": "develop"
                     },
                     "redpill_load": {
-                            "source_url": "https://gitee.com/gebi1/dogodefi-redpill-load.git",
+                            "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
                             "branch": "develop"
                     },
             "add_extensions": [
@@ -495,7 +495,7 @@
                             "branch": "develop"
                     },
                     "redpill_load": {
-                            "source_url": "https://gitee.com/gebi1/jumkey-redpill-load.git",
+                            "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
                             "branch": "develop"
                     },
               "add_extensions": [{
@@ -587,7 +587,7 @@
                             "branch": "develop"
                     },
                     "redpill_load": {
-                            "source_url": "https://gitee.com/gebi1/dogodefi-redpill-load.git",
+                            "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
                             "branch": "develop"
                     },
             "add_extensions": [
