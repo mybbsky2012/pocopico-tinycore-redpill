@@ -38,7 +38,7 @@
                 "branch": "master"
             },
             "redpill_load": {
-                "source_url": "https://gitee.com/gebi1/redpill-load.git",
+                "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
                 "branch": "master"
             }
         },
@@ -64,7 +64,7 @@
                 "branch": "master"
             },
             "redpill_load": {
-                "source_url": "https://gitee.com/gebi1/redpill-load.git",
+                "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
                 "branch": "master"
             }
         },
@@ -90,7 +90,7 @@
                 "branch": "master"
             },
             "redpill_load": {
-                "source_url": "https://gitee.com/gebi1/redpill-load.git",
+                "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
                 "branch": "master"
             }
         },
@@ -116,7 +116,7 @@
                 "branch": "master"
             },
             "redpill_load": {
-                "source_url": "https://gitee.com/gebi1/redpill-load.git",
+                "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
                 "branch": "master"
             }
         }
