@@ -1,13 +1,13 @@
 #!/bin/bash
 #
 # Author :
-# Date : 22040514
-# Version : 0.7.0.1
+# Date : 220425
+# Version : 0.7.0.6
 #
 #
 # User Variables :
 
-rploaderver="0.7.0.1"
+rploaderver="0.7.0.6"
 rploaderfile="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/rploader.sh"
 rploaderrepo="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/"
 
@@ -22,6 +22,56 @@ fullupdatefiles="custom_config.json global_config.json modules.alias.3.json.gz m
 
 # END Do not modify after this line
 ######################################################################################################
+
+function savesession() {
+
+    lastsessiondir="/mnt/${tcrppart}/lastsession"
+
+    echo -n "Saving user session for future use. "
+
+    [ ! -d ${lastsessiondir} ] && sudo mkdir ${lastsessiondir}
+
+    echo -n "Saving current extensions "
+
+    cat /home/tc/redpill-load/custom/extensions/*/*json | jq '.url' >${lastsessiondir}/extensions.list
+
+    [ -f ${lastsessiondir}/extensions.list ] && echo " -> OK !"
+
+    echo -n "Saving current user_config.json "
+
+    cp /home/tc/user_config.json ${lastsessiondir}/user_config.json
+
+    [ -f ${lastsessiondir}/user_config.json ] && echo " -> OK !"
+
+}
+
+function restoresession() {
+
+    lastsessiondir="/mnt/${tcrppart}/lastsession"
+
+    if [ -d $lastsessiondir ]; then
+
+        echo -n "Found last user session :  , restore session ? [yY/nN] : "
+        read answer
+
+        if [ "$answer" == "y" ] || [ "$answer" == "Y" ]; then
+
+            if [ -d $lastsessiondir ] && [ -f ${lastsessiondir}/extensions.list ]; then
+                for extension in $(cat ${lastsessiondir}/extensions.list); do
+                    echo "Adding extension ${extension} "
+                    cd /home/tc/redpill-load/ && ./ext-manager.sh add "$(echo $extension | sed -s 's/"//g' | sed -s 's/,//g')"
+                done
+            fi
+            if [ -d $lastsessiondir ] && [ -f ${lastsessiondir}/user_config.json ]; then
+                echo "Copying last user_config.json"
+                cp ${lastsessiondir}/user_config.json /home/tc
+            fi
+
+        fi
+    else
+        echo "OK, we will not restore last session"
+    fi
+}
 
 function downloadextractor() {
     loaderdisk="$(mount | grep -i optional | grep cde | awk -F / '{print $3}' | uniq | cut -c 1-3)"
@@ -727,6 +777,9 @@ function patchdtc() {
     loaderdisk=$(mount | grep -i optional | grep cde | awk -F / '{print $3}' | uniq | cut -c 1-3)
     localdisks=$(lsblk | grep -i disk | grep -i sd | awk '{print $1}' | grep -v $loaderdisk)
     localnvme=$(lsblk | grep -i nvme | awk '{print $1}')
+    usbpid=$(cat user_config.json | jq '.extra_cmdline .pid' | sed -e 's/"//g' | sed -e 's/0x//g')
+    usbvid=$(cat user_config.json | jq '.extra_cmdline .vid' | sed -e 's/"//g' | sed -e 's/0x//g')
+    loaderusb=$(lsusb | grep "${usbvid}:${usbpid}" | awk '{print $2 "-"  $4 }' | sed -e 's/://g' | sed -s 's/00//g')
 
     if [ "${TARGET_PLATFORM}" = "v1000" ]; then
         dtbfile="ds1621p"
@@ -755,13 +808,17 @@ function patchdtc() {
     echo "Collecting disk paths"
 
     for disk in $localdisks; do
-        diskpath=$(udevadm info --query path --name $disk | awk -F "\/" '{print $4 ":" $5 }' | awk -F ":" '{print $2 ":" $3 "," $6}')
-        echo "Found local disk $disk with path $diskpath, adding into internal_slot $diskslot"
+        diskpath=$(udevadm info --query path --name $disk | awk -F "\/" '{print $4 ":" $5 }' | awk -F ":" '{print $2 ":" $3 "," $6}' | sed 's/,*$//')
+        diskport=$(udevadm info --query path --name $disk | sed -n '/target/{s/.*target//;p;}' | awk -F: '{print $1}')
+
+        echo "Found local disk $disk with path $diskpath, adding into internal_slot $diskslot with portnumber $diskport"
         if [ "${dtbfile}" == "ds920p" ]; then
             sed -i "/internal_slot\@${diskslot} {/!b;n;n;n;n;n;n;n;cpcie_root = \"$diskpath\";" ${dtbfile}.dts
+            sed -i "/internal_slot\@${diskslot} {/!b;n;n;n;n;n;n;n;n;cata_port = <0x$diskport>;" ${dtbfile}.dts
             let diskslot=$diskslot+1
         else
             sed -i "/internal_slot\@${diskslot} {/!b;n;n;n;n;n;cpcie_root = \"$diskpath\";" ${dtbfile}.dts
+            sed -i "/internal_slot\@${diskslot} {/!b;n;n;n;n;n;n;cata_port = <0x$diskport>;" ${dtbfile}.dts
             let diskslot=$diskslot+1
         fi
 
@@ -772,7 +829,7 @@ function patchdtc() {
         echo "Collecting nvme paths"
 
         for nvme in $localnvme; do
-            nvmepath=$(udevadm info --query path --name $nvme | awk -F "\/" '{print $4 ":" $5 }' | awk -F ":" '{print $2 ":" $3 "," $6}')
+            nvmepath=$(udevadm info --query path --name $nvme | awk -F "\/" '{print $4 ":" $5 }' | awk -F ":" '{print $2 ":" $3 "," $6}' | sed 's/,*$//')
             echo "Found local nvme $nvme with path $nvmepath, adding into m2_card $nvmeslot"
             if [ "${dtbfile}" == "ds920p" ]; then
                 sed -i "/nvme_slot\@${nvmeslot} {/!b;n;cpcie_root = \"$nvmepath\";" ${dtbfile}.dts
@@ -785,6 +842,15 @@ function patchdtc() {
 
     else
         echo "NO NVME disks found, returning"
+    fi
+
+    if
+        [ ! -z $loaderusb ] && [ -n $loaderusb ]
+    then
+        echo "Patching USB to include your loader. Loader found in ${loaderusb} port"
+        sed -i "/usb_slot\@1 {/!b;n;n;n;n;n;n;n;cusb_port = \"${loaderusb}\";" ${dtbfile}.dts
+    else
+        echo "Your loader is not in USB, i will not try to patch dtb for USB"
     fi
 
     echo "Converting dts file : ${dtbfile}.dts to dtb file : >${dtbfile}.dtb "
@@ -800,7 +866,7 @@ function patchdtc() {
             echo -e "ERROR !\nFile has not been copied succesfully, you will need to copy it yourself"
         fi
     else
-        [ -z ${dtbextfile} ] && "dtb extension is not loaded and its required for DSM to find disks on ${SYNOMODEL}"
+        [ -z ${dtbextfile} ] && echo "dtb extension is not loaded and its required for DSM to find disks on ${SYNOMODEL}"
         echo "Copy of the DTB file ${dtbfile}.dtb to ${dtbextfile} was not succesfull."
         echo "Please remember to replace the dtb extension model file ..."
         echo "execute manually : cp ${dtbfile}.dtb ${dtbextfile} and re-run"
@@ -1382,6 +1448,8 @@ Actions: build, ext, download, clean, update, listmod, serialgen, identifyusb, s
 
 - restoreloader:Restore current loader partitions from your TCRP partition
 
+- restoresession: Restore last user session files. (extensions and user_config.json)
+
 - mountdsmroot: Mount DSM root for manual intervention on DSM root partition
 
 - postupdate:   Runs a postupdate process to recreate your rd.gz, zImage and custom.gz for junior to match root
@@ -1647,7 +1715,7 @@ function buildloader() {
     echo "Caching files for future use"
     [ ! -d ${local_cache} ] && mkdir ${local_cache}
 
-    if [ $(df -h /mnt/${tcrppart} | grep mnt | awk '{print $4}' | cut -c 1-3) -le 400 ]; then
+    if [ $(df -h /mnt/${tcrppart} | grep mnt | awk '{print $4}' | cut -c 1-3 | sed -e 's/M//g') -le 400 ]; then
         echo "No adequate space on TCRP loader partition /mnt/${tcrppart} to cache pat file"
         echo "Found $(ls /mnt/${tcrppart}/auxfiles/*pat) file"
         echo -n "Do you want me to remove older cached pat files and cache current ? [yY/nN] : "
@@ -1656,13 +1724,13 @@ function buildloader() {
             rm -f /mnt/${tcrppart}/auxfiles/*.pat
             patfile=$(ls /home/tc/redpill-load/cache/*${TARGET_REVISION}*.pat | head -1)
             echo "Found ${patfile}, copying to cache directory : ${local_cache} "
-            cp -adf ${patfile} ${local_cache}
+            cp -f ${patfile} ${local_cache}
         fi
     else
         if [ -f "$(ls /home/tc/redpill-load/cache/*${TARGET_REVISION}*.pat | head -1)" ]; then
             patfile=$(ls /home/tc/redpill-load/cache/*${TARGET_REVISION}*.pat | head -1)
             echo "Found ${patfile}, copying to cache directory : ${local_cache} "
-            cp -adf ${patfile} ${local_cache}
+            cp -f ${patfile} ${local_cache}
         fi
     fi
 
@@ -1712,14 +1780,14 @@ function getlatestrploader() {
 
     curl -s --location "$rploaderfile" --output latestrploader.sh
     curl -s --location "$modalias3" --output modules.alias.3.json.gz
-    gunzip -f modules.alias.3.json.gz
+    [ -f modules.alias.3.json.gz ] && gunzip -f modules.alias.3.json.gz
     curl -s --location "$modalias4" --output modules.alias.4.json.gz
-    gunzip -f modules.alias.4.json.gz
+    [ -f modules.alias.4.json.gz ] && gunzip -f modules.alias.4.json.gz
 
     CURRENTSHA="$(sha256sum rploader.sh | awk '{print $1}')"
     REPOSHA="$(sha256sum latestrploader.sh | awk '{print $1}')"
 
-    if [ "${CURRENTSHA}" != "${REPOSHA}" ]; then
+    if [ -f latestrploader.sh ] && [ "${CURRENTSHA}" != "${REPOSHA}" ]; then
         echo -n "There is a newer version of the script on the repo should we use that ? [yY/nN]"
         read confirmation
         if [ "$confirmation" = "y" ] || [ "$confirmation" = "Y" ]; then
@@ -1764,6 +1832,11 @@ function getvars() {
     TARGET_VERSION="$(echo $platform_selected | jq -r -e '.platform_version | split("-")' | jq -r -e .[1])"
     TARGET_REVISION="$(echo $platform_selected | jq -r -e '.platform_version | split("-")' | jq -r -e .[2])"
     REDPILL_LKM_MAKE_TARGET="$(echo $platform_selected | jq -r -e '.redpill_lkm_make_target')"
+    tcrppart="$(mount | grep -i optional | grep cde | awk -F / '{print $3}' | uniq | cut -c 1-3)3"
+    local_cache="/mnt/${tcrppart}/auxfiles"
+
+    [ ! -d ${local_cache} ] && sudo mkdir -p ${local_cache}
+    [ ! -h /home/tc/custom-module ] && sudo ln -s $local_cache /home/tc/custom-module
 
     if [ -z "$TARGET_PLATFORM" ] || [ -z "$TARGET_VERSION" ] || [ -z "$TARGET_REVISION" ]; then
         echo "Error : Platform not found "
@@ -1818,6 +1891,7 @@ function getvars() {
     echo "MODULE_ALIAS_FILE :  $MODULE_ALIAS_FILE"
     echo "SYNOMODEL : $SYNOMODEL "
     echo "MODEL : $MODEL "
+    echo "Local Cache Folder : $local_cache"
 }
 
 function matchpciidmodule() {
@@ -2030,6 +2104,7 @@ build)
         listmodules
         echo "Starting loader creation "
         buildloader
+        [ $? -eq 0 ] && savesession
         ;;
 
     manual)
@@ -2040,6 +2115,7 @@ build)
         echo "Manual extension handling,skipping extension auto detection "
         echo "Starting loader creation "
         buildloader
+        [ $? -eq 0 ] && savesession
         ;;
 
     *)
@@ -2050,6 +2126,7 @@ build)
         listmodules
         echo "Starting loader creation "
         buildloader
+        [ $? -eq 0 ] && savesession
         ;;
 
     esac
@@ -2065,6 +2142,13 @@ ext)
     else
         ext_manager $@ # instead of listmodules
     fi
+    ;;
+
+restoresession)
+    getvars $2
+    checkinternet
+    gitdownload
+    restoresession
     ;;
 
 clean)
@@ -2092,8 +2176,8 @@ interactive)
     if [ -f interactive.sh ]; then
         . ./interactive.sh
     else
-        #curl --location --progress-bar "https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/interactive.sh" --output interactive.sh
-        #. ./interactive.sh
+        curl --location --progress-bar "https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/interactive.sh" --output interactive.sh
+        . ./interactive.sh
         exit 99
     fi
     ;;
@@ -2129,6 +2213,7 @@ postupdate)
     gitdownload
     getstaticmodule
     postupdate
+    [ $? -eq 0 ] && savesession
     ;;
 
 mountdsmroot)

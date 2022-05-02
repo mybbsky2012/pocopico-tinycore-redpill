@@ -32,6 +32,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/3w-sas/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/3w-sas/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/3w-sas/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/3w-sas/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/3w-sas/releases/ds920p_42218.json"
   }
 }
@@ -69,6 +70,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/8139cp/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/8139cp/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/8139cp/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/8139cp/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/8139cp/releases/ds920p_42218.json"
   }
 }
@@ -106,6 +108,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/8139too/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/8139too/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/8139too/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/8139too/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/8139too/releases/ds920p_42218.json"
   }
 }
@@ -143,6 +146,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/aacraid/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/aacraid/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/aacraid/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/aacraid/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/aacraid/releases/ds920p_42218.json"
   }
 }
@@ -180,6 +184,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/aic94xx/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/aic94xx/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/aic94xx/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/aic94xx/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/aic94xx/releases/ds920p_42218.json"
   }
 }
@@ -217,7 +222,45 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/alx/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/alx/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/alx/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/alx/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/alx/releases/ds920p_42218.json"
+  }
+}
+{
+  "id": "pocopico.arcmsr",
+  "url": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/rpext-index.json",
+  "info": {
+    "name": "arcmsr",
+    "description": "Adds Areca ARC11xx/12xx/16xx/188x SAS/SATA RAID Controller Driver Support",
+    "author_url": "https://github.com/pocopico",
+    "packer_url": "https://gitee.com/gebi1/pocopico-rp-ext/tree/main/arcmsr",
+    "help_url": "<todo>"
+  },
+  "releases": {
+    "ds3615xs_25556": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds3615xs_25556.json",
+    "ds3615xs_41222": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds3615xs_41222.json",
+    "ds3615xs_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds3615xs_42218.json",
+    "ds3615xs_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds3615xs_42218.json",
+    "ds3615xs_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds3615xs_42218.json",
+    "ds3617xs_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds3617xs_42218.json",
+    "ds3617xs_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds3617xs_42218.json",
+    "ds3617xs_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds3617xs_42218.json",
+    "ds3622xsp_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds3622xsp_42218.json",
+    "ds3622xsp_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds3622xsp_42218.json",
+    "ds3622xsp_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds3622xsp_42218.json",
+    "ds1621p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds1621p_42218.json",
+    "ds1621p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds1621p_42218.json",
+    "ds1621p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds1621p_42218.json",
+    "dva3221_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/dva3221_42218.json",
+    "dva3221_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/dva3221_42218.json",
+    "dva3221_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/dva3221_42218.json",
+    "ds918p_25556": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds918p_25556.json",
+    "ds918p_41890": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds918p_41890.json",
+    "ds918p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds918p_42218.json",
+    "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds918p_42218.json",
+    "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds918p_42218.json",
+    "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds920p_42218.json",
+    "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/arcmsr/releases/ds920p_42218.json"
   }
 }
 {
@@ -254,6 +297,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/asix/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/asix/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/asix/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/asix/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/asix/releases/ds920p_42218.json"
   }
 }
@@ -291,6 +335,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1c/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1c/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1c/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1c/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1c/releases/ds920p_42218.json"
   }
 }
@@ -328,6 +373,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1e/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1e/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1e/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1e/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1e/releases/ds920p_42218.json"
   }
 }
@@ -365,6 +411,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl1/releases/ds920p_42218.json"
   }
 }
@@ -402,6 +449,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl2/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl2/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl2/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl2/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atl2/releases/ds920p_42218.json"
   }
 }
@@ -439,6 +487,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atlantic/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atlantic/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atlantic/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atlantic/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/atlantic/releases/ds920p_42218.json"
   }
 }
@@ -476,6 +525,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ax88179_178a/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ax88179_178a/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ax88179_178a/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ax88179_178a/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ax88179_178a/releases/ds920p_42218.json"
   }
 }
@@ -513,6 +563,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/be2net/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/be2net/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/be2net/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/be2net/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/be2net/releases/ds920p_42218.json"
   }
 }
@@ -550,6 +601,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bna/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bna/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bna/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bna/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bna/releases/ds920p_42218.json"
   }
 }
@@ -587,6 +639,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bnx2/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bnx2/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bnx2/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bnx2/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bnx2/releases/ds920p_42218.json"
   }
 }
@@ -624,6 +677,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bnx2x/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bnx2x/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bnx2x/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bnx2x/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/bnx2x/releases/ds920p_42218.json"
   }
 }
@@ -661,6 +715,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb3/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb3/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb3/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb3/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb3/releases/ds920p_42218.json"
   }
 }
@@ -698,6 +753,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb4/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb4/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb4/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb4/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb4/releases/ds920p_42218.json"
   }
 }
@@ -735,6 +791,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb4vf/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb4vf/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb4vf/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb4vf/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb4vf/releases/ds920p_42218.json"
   }
 }
@@ -772,6 +829,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/cxgb/releases/ds920p_42218.json"
   }
 }
@@ -809,6 +867,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/dm9601/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/dm9601/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/dm9601/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/dm9601/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/dm9601/releases/ds920p_42218.json"
   }
 }
@@ -846,6 +905,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/e1000e/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/e1000e/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/e1000e/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/e1000e/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/e1000e/releases/ds920p_42218.json"
   }
 }
@@ -883,6 +943,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/e1000/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/e1000/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/e1000/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/e1000/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/e1000/releases/ds920p_42218.json"
   }
 }
@@ -938,6 +999,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/forcedeth/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/forcedeth/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/forcedeth/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/forcedeth/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/forcedeth/releases/ds920p_42218.json"
   }
 }
@@ -975,6 +1037,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/hpsa/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/hpsa/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/hpsa/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/hpsa/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/hpsa/releases/ds920p_42218.json"
   }
 }
@@ -1012,6 +1075,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/i40e/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/i40e/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/i40e/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/i40e/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/i40e/releases/ds920p_42218.json"
   }
 }
@@ -1049,6 +1113,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/iavf/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/iavf/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/iavf/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/iavf/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/iavf/releases/ds920p_42218.json"
   }
 }
@@ -1086,6 +1151,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/igb/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/igb/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/igb/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/igb/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/igb/releases/ds920p_42218.json"
   }
 }
@@ -1123,6 +1189,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/igbvf/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/igbvf/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/igbvf/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/igbvf/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/igbvf/releases/ds920p_42218.json"
   }
 }
@@ -1160,6 +1227,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ixgbe/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ixgbe/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ixgbe/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ixgbe/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ixgbe/releases/ds920p_42218.json"
   }
 }
@@ -1211,6 +1279,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ixgbevf/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ixgbevf/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ixgbevf/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ixgbevf/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/ixgbevf/releases/ds920p_42218.json"
   }
 }
@@ -1248,6 +1317,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/megaraid_sas/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/megaraid_sas/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/megaraid_sas/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/megaraid_sas/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/megaraid_sas/releases/ds920p_42218.json"
   }
 }
@@ -1285,7 +1355,45 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx4_core/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx4_core/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx4_core/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx4_core/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx4_core/releases/ds920p_42218.json"
+  }
+}
+{
+  "id": "pocopico.mlx5_core",
+  "url": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/rpext-index.json",
+  "info": {
+    "name": "mlx5_core",
+    "description": "Adds Mellanox Connect-IB, ConnectX-4 core driver Support",
+    "author_url": "https://github.com/pocopico",
+    "packer_url": "https://gitee.com/gebi1/pocopico-rp-ext/tree/main/mlx5_core",
+    "help_url": "<todo>"
+  },
+  "releases": {
+    "ds3615xs_25556": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds3615xs_25556.json",
+    "ds3615xs_41222": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds3615xs_41222.json",
+    "ds3615xs_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds3615xs_42218.json",
+    "ds3615xs_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds3615xs_42218.json",
+    "ds3615xs_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds3615xs_42218.json",
+    "ds3617xs_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds3617xs_42218.json",
+    "ds3617xs_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds3617xs_42218.json",
+    "ds3617xs_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds3617xs_42218.json",
+    "ds3622xsp_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds3622xsp_42218.json",
+    "ds3622xsp_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds3622xsp_42218.json",
+    "ds3622xsp_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds3622xsp_42218.json",
+    "ds1621p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds1621p_42218.json",
+    "ds1621p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds1621p_42218.json",
+    "ds1621p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds1621p_42218.json",
+    "dva3221_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/dva3221_42218.json",
+    "dva3221_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/dva3221_42218.json",
+    "dva3221_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/dva3221_42218.json",
+    "ds918p_25556": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds918p_25556.json",
+    "ds918p_41890": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds918p_41890.json",
+    "ds918p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds918p_42218.json",
+    "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds918p_42218.json",
+    "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds918p_42218.json",
+    "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds920p_42218.json",
+    "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mlx5_core/releases/ds920p_42218.json"
   }
 }
 {
@@ -1322,6 +1430,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mpt2sas/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mpt2sas/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mpt2sas/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mpt2sas/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mpt2sas/releases/ds920p_42218.json"
   }
 }
@@ -1359,6 +1468,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mpt3sas/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mpt3sas/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mpt3sas/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mpt3sas/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mpt3sas/releases/ds920p_42218.json"
   }
 }
@@ -1396,6 +1506,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mptsas/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mptsas/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mptsas/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mptsas/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mptsas/releases/ds920p_42218.json"
   }
 }
@@ -1433,7 +1544,45 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mptspi/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mptspi/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mptspi/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mptspi/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mptspi/releases/ds920p_42218.json"
+  }
+}
+{
+  "id": "pocopico.mvsas",
+  "url": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/rpext-index.json",
+  "info": {
+    "name": "mvsas",
+    "description": "Adds Marvell 88SE6440 SAS/SATA controller driver Support",
+    "author_url": "https://github.com/pocopico",
+    "packer_url": "https://gitee.com/gebi1/pocopico-rp-ext/tree/main/mvsas",
+    "help_url": "<todo>"
+  },
+  "releases": {
+    "ds3615xs_25556": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds3615xs_25556.json",
+    "ds3615xs_41222": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds3615xs_41222.json",
+    "ds3615xs_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds3615xs_42218.json",
+    "ds3615xs_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds3615xs_42218.json",
+    "ds3615xs_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds3615xs_42218.json",
+    "ds3617xs_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds3617xs_42218.json",
+    "ds3617xs_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds3617xs_42218.json",
+    "ds3617xs_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds3617xs_42218.json",
+    "ds3622xsp_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds3622xsp_42218.json",
+    "ds3622xsp_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds3622xsp_42218.json",
+    "ds3622xsp_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds3622xsp_42218.json",
+    "ds1621p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds1621p_42218.json",
+    "ds1621p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds1621p_42218.json",
+    "ds1621p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds1621p_42218.json",
+    "dva3221_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/dva3221_42218.json",
+    "dva3221_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/dva3221_42218.json",
+    "dva3221_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/dva3221_42218.json",
+    "ds918p_25556": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds918p_25556.json",
+    "ds918p_41890": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds918p_41890.json",
+    "ds918p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds918p_42218.json",
+    "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds918p_42218.json",
+    "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds918p_42218.json",
+    "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds920p_42218.json",
+    "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/mvsas/releases/ds920p_42218.json"
   }
 }
 {
@@ -1470,6 +1619,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/qla2xxx/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/qla2xxx/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/qla2xxx/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/qla2xxx/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/qla2xxx/releases/ds920p_42218.json"
   }
 }
@@ -1507,6 +1657,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/qlcnic/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/qlcnic/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/qlcnic/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/qlcnic/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/qlcnic/releases/ds920p_42218.json"
   }
 }
@@ -1544,6 +1695,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8101/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8101/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8101/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8101/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8101/releases/ds920p_42218.json"
   }
 }
@@ -1581,6 +1733,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8125/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8125/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8125/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8125/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8125/releases/ds920p_42218.json"
   }
 }
@@ -1618,6 +1771,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8152/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8152/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8152/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8152/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8152/releases/ds920p_42218.json"
   }
 }
@@ -1655,6 +1809,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8168/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8168/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8168/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8168/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8168/releases/ds920p_42218.json"
   }
 }
@@ -1692,6 +1847,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8169/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8169/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8169/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8169/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/r8169/releases/ds920p_42218.json"
   }
 }
@@ -1727,9 +1883,29 @@
     "ds3615xs_25556": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal_v6.json",
     "ds3615xs_41222": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
     "ds3615xs_42218": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds3615xs_42621": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds3615xs_42661": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds3617xs_42218": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds3617xs_42621": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds3617xs_42661": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
     "ds918p_25556": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal_v6.json",
     "ds918p_41890": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
-    "ds918p_42218": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json"
+    "ds918p_42218": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds918p_42621": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds918p_42661": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds920p_42218": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds920p_42550": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds920p_42621": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds920p_42661": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds1621p_42218": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds1621p_42621": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds1621p_42661": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds2422p_42218": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds2422p_42621": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds2422p_42661": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds3622xsp_42218": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds3622xsp_42621": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json",
+    "ds3622xsp_42661": "https://gitee.com/gebi1/jumkey-redpill-load/raw/develop/redpill-acpid/recipes/universal.json"
   }
 }
 {
@@ -1742,27 +1918,35 @@
     "help_url": "https://gitee.com/gebi1/pocopico-rp-ext/redpill-boot-wait"
   },
   "releases": {
+    "ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds920p_42550": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds1621p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds1621p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds1621p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds2422p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds2422p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds2422p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds3622xsp_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds3622xsp_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds3622xsp_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
     "ds3615xs_25556": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
     "ds3615xs_41222": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
     "ds3615xs_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
-    "ds3615xs_42218u2": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
-    "ds3615xs_42218u3": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
     "ds3615xs_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
-    "ds3617xs_41222": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds3615xs_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
     "ds3617xs_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
     "ds3617xs_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
-    "ds3622xsp_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
-    "ds3622xsp_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
-    "ds1621p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
-    "ds1621p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds3617xs_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
     "dva3221_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
     "dva3221_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "dva3221_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
     "ds918p_25556": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
     "ds918p_41890": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
+    "ds918p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
-    "ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json",
-    "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json"
-   
+    "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill-boot-wait/recipes/universal.json"
   }
 }
 {
@@ -1798,6 +1982,7 @@
     "ds918p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill/releases/ds918p_42218.json",
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill/releases/ds918p_42218.json",
+    "ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill/releases/ds920p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill/releases/ds920p_42218.json"
   }
@@ -1836,6 +2021,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/rtl8150/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/rtl8150/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/rtl8150/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/rtl8150/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/rtl8150/releases/ds920p_42218.json"
   }
 }
@@ -1873,6 +2059,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/sfc/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/sfc/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/sfc/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/sfc/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/sfc/releases/ds920p_42218.json"
   }
 }
@@ -1910,6 +2097,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/skge/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/skge/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/skge/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/skge/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/skge/releases/ds920p_42218.json"
   }
 }
@@ -1947,6 +2135,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/sky2/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/sky2/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/sky2/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/sky2/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/sky2/releases/ds920p_42218.json"
   }
 }
@@ -2014,6 +2203,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/tg3/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/tg3/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/tg3/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/tg3/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/tg3/releases/ds920p_42218.json"
   }
 }
@@ -2051,6 +2241,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/tn40xx/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/tn40xx/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/tn40xx/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/tn40xx/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/tn40xx/releases/ds920p_42218.json"
   }
 }
@@ -2088,6 +2279,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/v9fs/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/v9fs/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/v9fs/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/v9fs/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/v9fs/releases/ds920p_42218.json"
   }
 }
@@ -2125,6 +2317,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/via-rhine/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/via-rhine/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/via-rhine/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/via-rhine/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/via-rhine/releases/ds920p_42218.json"
   }
 }
@@ -2162,6 +2355,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/via-velocity/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/via-velocity/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/via-velocity/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/via-velocity/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/via-velocity/releases/ds920p_42218.json"
   }
 }
@@ -2199,6 +2393,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vmw_pvscsi/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vmw_pvscsi/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vmw_pvscsi/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vmw_pvscsi/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vmw_pvscsi/releases/ds920p_42218.json"
   }
 }
@@ -2236,6 +2431,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vmxnet3/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vmxnet3/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vmxnet3/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vmxnet3/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vmxnet3/releases/ds920p_42218.json"
   }
 }
@@ -2273,6 +2469,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vxge/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vxge/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vxge/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vxge/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/vxge/releases/ds920p_42218.json"
   }
 }
@@ -2310,6 +2507,7 @@
     "ds918p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/wch/releases/ds918p_42218.json",
     "ds918p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/wch/releases/ds918p_42218.json",
     "ds920p_42621": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/wch/releases/ds920p_42218.json",
+"ds920p_42218": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/wch/releases/ds920p_42218.json",
     "ds920p_42661": "https://gitee.com/gebi1/pocopico-rp-ext/raw/main/wch/releases/ds920p_42218.json"
   }
 }
