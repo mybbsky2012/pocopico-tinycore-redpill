@@ -34,11 +34,11 @@
                 }
             },
             "redpill_lkm": {
-                "source_url": "https://gitee.com/gebi1/redpill-lkm.git",
+                "source_url": "https://gitee.com/gebi1/ttg-redpill-lkm.git",
                 "branch": "master"
             },
             "redpill_load": {
-                "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
+                "source_url": "https://gitee.com/gebi1/ttg-redpill-load.git",
                 "branch": "master"
             }
         },
@@ -60,11 +60,11 @@
                 }
             },
             "redpill_lkm": {
-                "source_url": "https://gitee.com/gebi1/redpill-lkm.git",
+                "source_url": "https://gitee.com/gebi1/ttg-redpill-lkm.git",
                 "branch": "master"
             },
             "redpill_load": {
-                "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
+                "source_url": "https://gitee.com/gebi1/ttg-redpill-load.git",
                 "branch": "master"
             }
         },
@@ -86,11 +86,11 @@
                 }
             },
             "redpill_lkm": {
-                "source_url": "https://gitee.com/gebi1/redpill-lkm.git",
+                "source_url": "https://gitee.com/gebi1/ttg-redpill-lkm.git",
                 "branch": "master"
             },
             "redpill_load": {
-                "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
+                "source_url": "https://gitee.com/gebi1/ttg-redpill-load.git",
                 "branch": "master"
             }
         },
@@ -112,11 +112,11 @@
                 }
             },
             "redpill_lkm": {
-                "source_url": "https://gitee.com/gebi1/redpill-lkm.git",
+                "source_url": "https://gitee.com/gebi1/ttg-redpill-lkm.git",
                 "branch": "master"
             },
             "redpill_load": {
-                "source_url": "https://gitee.com/gebi1/pocopico-redpill-load.git",
+                "source_url": "https://gitee.com/gebi1/ttg-redpill-load.git",
                 "branch": "master"
             }
         }
