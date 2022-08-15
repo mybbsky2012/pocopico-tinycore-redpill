@@ -1,23 +1,23 @@
 #!/bin/bash
 #
 # Author :
-# Date : 220705
-# Version : 0.8.0.5
+# Date : 220708
+# Version : 0.9.1.2
 #
 #
 # User Variables :
 
-rploaderver="0.8.0.5"
-build="main"
-rploaderfile="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/rploader.sh"
-rploaderrepo="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/"
+rploaderver="0.9.1.2"
+build="develop"
+rploaderfile="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/develop/rploader.sh"
+rploaderrepo="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/develop/"
 
 redpillextension="https://gitee.com/gebi1/pocopico-rp-ext/raw/main/redpill/rpext-index.json"
 modextention="https://gitee.com/gebi1/pocopico-rp-ext/raw/main/rpext-index.json"
-modalias4="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/modules.alias.4.json.gz"
-modalias3="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/modules.alias.3.json.gz"
-dtcbin="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/dtc"
-dtsfiles="https://gitee.com/gebi1/pocopico-tinycore-redpill/main"
+modalias4="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/develop/modules.alias.4.json.gz"
+modalias3="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/develop/modules.alias.3.json.gz"
+dtcbin="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/develop/tools/dtc"
+dtsfiles="https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/develop/"
 timezone="UTC"
 ntpserver="pool.ntp.org"
 
@@ -25,6 +25,8 @@ fullupdatefiles="custom_config.json custom_config_jun.json global_config.json mo
 
 # END Do not modify after this line
 ######################################################################################################
+
+# extract nano  LD_LIBRARY_PATH=/home/tc/archive/lib /home/tc/archive/synoarchive.nano -xvf ../synology_geminilake_dva1622.pat
 
 function history() {
 
@@ -51,13 +53,114 @@ function history() {
     0.7.1.8 Updated satamap function to fine tune SATA port identification and identify SATABOOT
     0.7.1.9 Updated patchdtc function to fix wrong port identification for VMware hosted systems
     0.8.0.0 Stable version. All new features will be moved to develop repo
-    0.8.0.1 Updated postupdate to facilitate update to update2
-    0.8.0.2 Updated satamap to support DUMMY PORT detection 
-    0.8.0.3 Updated satamap to avoid the use of 0 in first controller that cause KP
-    0.8.0.4 Fixed missing binary
-    0.8.0.5 Fixed a jq issue in listextension
+    0.9.0.0 Development version. Moving all new features to development build
+    0.9.0.1 Updated postupdate to facilitate update to update2
+    0.9.0.2 Added system monitor function 
+    0.9.0.3 Updated satamap to support DUMMY PORT detection 
+    0.9.0.4 More satamap fixes
+    0.9.0.5 Added the option to get grub variables into user_config.json
+    0.9.0.6 Experimental DVA1622 (geminilake) addition
+    0.9.0.7 Experimental DVA1622 serialgen
+    0.9.0.8 Experimental DVA1622 increase disk count to 16
+    0.9.0.9 Fixed missing bspatch
+    0.9.1.0 Added dtc depth patch
+    0.9.1.1 Default action for DTB system is to use the dtbpatch by fbelavenuto
+    0.9.1.2 Fixed a jq issue in listextension
     --------------------------------------------------------------------------------------
 EOF
+
+}
+
+function getgrubconf() {
+
+    tcrpdisk="$(mount | grep -i optional | grep cde | awk -F / '{print $3}' | uniq | cut -c 1-3)"
+    grubdisk="${tcrpdisk}1"
+
+    echo "Mounting bootloader disk to get grub contents"
+    sudo mount /dev/$grubdisk
+
+    if [ $(df | grep -i $grubdisk | wc -l) -gt 0 ]; then
+        echo -n "Mounted succesfully : $(df -h | grep $grubdisk)"
+        [ -f /mnt/$grubdisk/boot/grub/grub.cfg ] && [ $(cat /mnt/$grubdisk/boot/grub/grub.cfg | wc -l) -gt 0 ] && echo "  -> Grub cfg is accessible and readable"
+    else
+        echo "Couldnt mount device : $grubdisk "
+        exit 99
+    fi
+
+    echo "Getting known loader grub variables"
+
+    grep pid /mnt/$grubdisk/boot/grub/grub.cfg >/tmp/grub.vars
+
+    while IFS=" " read -r -a line; do
+        printf "%s\n" "${line[@]}"
+    done </tmp/grub.vars | egrep -i "sataportmap|sn|pid|vid|mac|hddhotplug|diskidxmap|netif_num" | sort | uniq >/tmp/known.vars
+
+    if [ -f /tmp/known.vars ]; then
+        echo "Sourcing vars, found in grub : "
+        . /tmp/known.vars
+        rows="%-15s| %-15s | %-10s | %-10s | %-10s | %-15s | %-15s %c\n"
+        printf "$rows" Serial Mac Netif_num PID VID SataPortMap DiskIdxMap
+        printf "$rows" $sn $mac1 $netif_num $pid $vid $SataPortMap $DiskIdxMap
+
+        echo "Checking user config against grub vars"
+
+        for var in pid vid sn mac1 SataPortMap DiskIdxMap; do
+            if [ $(jq -r .extra_cmdline.$var user_config.json) == "${!var}" ]; then
+                echo "Grub var $var = ${!var} Matches your user_config.json"
+            else
+                echo "Grub var $var = ${!var} does not match your user_config.json variable which is set to : $(jq -r .extra_cmdline.$var user_config.json) "
+                echo "Should we populate user_config.json with these variables ? [Yy/Nn] "
+                read answer
+                if [ -n "$answer" ] && [ "$answer" = "Y" ] || [ "$answer" = "y" ]; then
+                    json="$(jq --arg newvar "${!var}" '.extra_cmdline.'$var'= $newvar' user_config.json)" && echo -E "${json}" | jq . >user_config.json
+                else
+                    echo "OK, you can edit yourself later"
+                fi
+            fi
+        done
+
+    else
+
+        echo "Could not read variables"
+    fi
+
+}
+
+function monitor() {
+
+    loaderdisk="$(mount | grep -i optional | grep cde | awk -F / '{print $3}' | uniq | cut -c 1-3)"
+    mount /dev/${loaderdisk}1
+    mount /dev/${loaderdisk}2
+
+    while true; do
+        clear
+        echo -e "-------------------------------System Information----------------------------"
+        echo -e "Hostname:\t\t"$(hostname) "uptime:\t\t\t"$(uptime | awk '{print $3,$4}' | sed 's/,//')
+        echo -e "Manufacturer:\t\t"$(cat /sys/class/dmi/id/chassis_vendor) "Product Name:\t\t"$(cat /sys/class/dmi/id/product_name)
+        echo -e "Version:\t\t"$(cat /sys/class/dmi/id/product_version)
+        echo -e "Serial Number:\t\t"$(sudo cat /sys/class/dmi/id/product_serial)
+        echo -e "Machine Type:\t\t"$(
+            vserver=$(lscpu | grep Hypervisor | wc -l)
+            if [ $vserver -gt 0 ]; then echo "VM"; else echo "Physical"; fi
+        ) "Operating System:\t"$(grep PRETTY_NAME /etc/os-release | awk -F \= '{print $2}')
+        echo -e "Kernel:\t\t\t"$(uname -r)
+        echo -e ""$(lscpu | head -1)"\t" "Processor Name:\t\t"$(awk -F':' '/^model name/ {print $2}' /proc/cpuinfo | uniq | sed -e 's/^[ \t]*//')
+        echo -e "Active Users:\t\t"$(who -u | cut -d ' ' -f1 | grep -v USER | xargs -n1)
+        echo -e "System Main IP:\t\t"$(ifconfig | grep inet | awk '{print $2}' | awk -F \: '{print $2}')
+        [ $(ps -ef | grep -i sshd | wc -l) -gt 0 ] && echo -e "SSHD connections ready" || echo -e "SSHD connections not ready"
+        echo -e "-------------------------------Loader boot entries------------------------------"
+        grep -i menuentry /mnt/${loaderdisk}1/boot/grub/grub.cfg | awk -F \' '{print $2}'
+        echo -e "-------------------------------CPU/Memory Usage------------------------------"
+        echo -e "Memory Usage:\t"$(free | awk '/Mem/{printf("%.2f%"), $3/$2*100}')
+        echo -e "Swap Usage:\t"$(free | awk '/Swap/{printf("%.2f%"), $3/$2*100}')
+        echo -e "CPU Usage:\t"$(cat /proc/stat | awk '/cpu/{printf("%.2f%\n"), ($2+$4)*100/($2+$4+$5)}' | awk '{print $0}' | head -1)
+        echo -e "-------------------------------Disk Usage >80%-------------------------------"
+        df -Ph | grep -v loop
+        [ $(lscpu | grep Hypervisor | wc -l) -gt 0 ] && echo "$(hostname) is a VM"
+
+        echo "Press ctrl-c to exti"
+        sleep 10
+    done
 
 }
 
@@ -94,7 +197,7 @@ function syntaxcheck() {
 
         serialgen)
             echo "Syntax error, You have to specify one of the existing models"
-            echo "DS3615xs DS3617xs DS916+ DS918+ DS920+ DS3622xs+ FS6400 DVA3219 DVA3221 DS1621+"
+            echo "DS3615xs DS3617xs DS916+ DS918+ DS920+ DS3622xs+ FS6400 DVA3219 DVA3221 DS1621+ DVA1622"
             ;;
 
         patchdtc)
@@ -284,6 +387,8 @@ function processpat() {
         SYNOMODEL="dva3221_$TARGET_REVISION" && MODEL="DVA3221"
     elif [ "${TARGET_PLATFORM}" = "geminilake" ]; then
         SYNOMODEL="ds920p_$TARGET_REVISION" && MODEL="DS920+"
+    elif [ "${TARGET_PLATFORM}" = "dva1622" ]; then
+        SYNOMODEL="dva1622_$TARGET_REVISION" && MODEL="DVA1622"
     fi
 
     if [ ! -d "${temp_pat_folder}" ]; then
@@ -366,13 +471,13 @@ function processpat() {
         echo -e "Configdir : $configdir \nConfigfile: $configfile \nPat URL : $pat_url"
         echo "Downloading pat file from URL : ${pat_url} "
 
-        if [ $(df -h ${local_cache} | grep mnt | awk '{print $4}' | cut -c 1-3) -le 370 ]; then
+        if [ $(df -h /${local_cache} | grep mnt | awk '{print $4}' | cut -c 1-3) -le 370 ]; then
             echo "No adequate space on ${local_cache} to download file into cache folder, clean up the space and restart"
             exit 99
         fi
 
-        [ -n $pat_url ] && curl --location ${pat_url} -o "${local_cache}/${SYNOMODEL}.pat"
-        patfile="${local_cache}/${SYNOMODEL}.pat"
+        [ -n $pat_url ] && curl --location ${pat_url} -o "/${local_cache}/${SYNOMODEL}.pat"
+        patfile="/${local_cache}/${SYNOMODEL}.pat"
         if [ -f ${patfile} ]; then
             testarchive ${patfile}
         else
@@ -434,8 +539,9 @@ function addrequiredexts() {
         cd /home/tc/redpill-load/ && ./ext-manager.sh _update_platform_exts ${SYNOMODEL} ${extension}
     done
 
-    if [ ${TARGET_PLATFORM} = "geminilake" ] || [ ${TARGET_PLATFORM} = "v1000" ]; then
-        patchdtc
+    if [ ${TARGET_PLATFORM} = "geminilake" ] || [ ${TARGET_PLATFORM} = "v1000" ] || [ ${TARGET_PLATFORM} = "dva1622" ]; then
+        #patchdtc
+        echo "Patch dtc is superseded by fbelavenuto dtbpatch"
     fi
 
 }
@@ -509,7 +615,7 @@ function postupdate() {
 
             echo "Done"
         else
-
+            echo "Removing temp ramdisk space " && rm -rf ramdisk
             exit 0
 
         fi
@@ -517,6 +623,7 @@ function postupdate() {
     fi
 
 }
+
 function postupdatev1() {
 
     echo "Mounting root to get the latest dsmroot patch in /.syno/patch "
@@ -544,7 +651,7 @@ function postupdatev1() {
 
         echo "bspatch does not exist, bringing over from repo"
 
-        curl --location "https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/bspatch" -O
+        curl --location "https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/develop/tools/bspatch" -O
 
         chmod 777 bspatch
         sudo mv bspatch /usr/local/bin/
@@ -955,6 +1062,8 @@ function patchdtc() {
         dtbfile="ds1621p"
     elif [ "${TARGET_PLATFORM}" = "geminilake" ]; then
         dtbfile="ds920p"
+    elif [ "${TARGET_PLATFORM}" = "dva1622" ]; then
+        dtbfile="dva1622"
     else
         echo "${TARGET_PLATFORM} does not require model.dtc patching "
         return
@@ -1015,15 +1124,25 @@ function patchdtc() {
     echo "Collecting disk paths"
 
     for disk in $localdisks; do
-        diskpath=$(udevadm info --query path --name $disk | awk -F "\/" '{print $4 ":" $5 }' | awk -F ":" '{print $2 ":" $3 "," $6}' | sed 's/,*$//')
+        diskdepth=$(udevadm info --query path --name $disk | awk -F"/" '{print NF-1}')
+        if [[ $diskdepth = 9 ]]; then
+            diskpath=$(udevadm info --query path --name $disk | awk -F "/" '{print $4 ":" $5 }' | awk -F ":" '{print $2 ":" $3 }')
+        elif [[ $diskdepth = 11 ]]; then
+            diskpath=$(udevadm info --query path --name $disk | awk -F "/" '{print $4 ":" $5 ":" $6 }' | awk -F ":" '{print $2 ":" $3 "," $6 "," $9 }')
+        else
+            diskpath=$(udevadm info --query path --name $disk | awk -F "/" '{print $4 ":" $5 }' | awk -F ":" '{print $2 ":" $3 "," $6}')
+        fi
+        #diskpath=$(udevadm info --query path --name $disk | awk -F "\/" '{print $4 ":" $5 }' | awk -F ":" '{print $2 ":" $3 "," $6}' | sed 's/,*$//')
         if [ "$HYPERVISOR" == "VMware" ]; then
-            diskport=$(udevadm info --query path --name $disk | sed -n '/target/{s/.*target[1-9]//;p;}' | awk -F: '{print $1}')
+            diskport=$(udevadm info --query path --name $disk | sed -n '/target/{s/.*target//;p;}' | awk -F: '{print $1}')
+            diskport=$(($diskport - 30)) && diskport=$(printf "%x" $diskport)
         else
             diskport=$(udevadm info --query path --name $disk | sed -n '/target/{s/.*target//;p;}' | awk -F: '{print $1}')
+            diskport=$(printf "%x" $diskport)
         fi
 
         echo "Found local disk $disk with path $diskpath, adding into internal_slot $diskslot with portnumber $diskport"
-        if [ "${dtbfile}" == "ds920p" ]; then
+        if [ "${dtbfile}" == "ds920p" ] || [ "${dtbfile}" == "dva1622" ]; then
             sed -i "/internal_slot\@${diskslot} {/!b;n;n;n;n;n;n;n;cpcie_root = \"$diskpath\";" ${dtbfile}.dts
             sed -i "/internal_slot\@${diskslot} {/!b;n;n;n;n;n;n;n;n;cata_port = <0x$diskport>;" ${dtbfile}.dts
             let diskslot=$diskslot+1
@@ -1308,7 +1427,7 @@ function satamap() {
         lspci -d ::104
         lspci -d ::107 | awk '{print $1}'
     )
-    [ ! -z "$pcis" ] && echo ""
+    [ ! -z "$pcis" ] && echo
     # loop through non-SATA controllers
     for pci in $pcis; do
         # get attached block devices (exclude CD-ROMs)
@@ -1405,7 +1524,7 @@ function serialgen() {
 
     [ "$2" == "realmac" ] && let keepmac=1 || let keepmac=0
 
-    if [ "$1" = "DS3615xs" ] || [ "$1" = "DS3617xs" ] || [ "$1" = "DS916+" ] || [ "$1" = "DS918+" ] || [ "$1" = "DS920+" ] || [ "$1" = "DS3622xs+" ] || [ "$1" = "FS6400" ] || [ "$1" = "DVA3219" ] || [ "$1" = "DVA3221" ] || [ "$1" = "DS1621+" ]; then
+    if [ "$1" = "DS3615xs" ] || [ "$1" = "DS3617xs" ] || [ "$1" = "DS916+" ] || [ "$1" = "DS918+" ] || [ "$1" = "DS920+" ] || [ "$1" = "DS3622xs+" ] || [ "$1" = "FS6400" ] || [ "$1" = "DVA3219" ] || [ "$1" = "DVA3221" ] || [ "$1" = "DS1621+" ] || [ "$1" = "DVA1622" ]; then
         serial="$(generateSerial $1)"
         mac="$(generateMacAddress $1)"
         realmac=$(ifconfig eth0 | head -1 | awk '{print $NF}')
@@ -1433,7 +1552,7 @@ function serialgen() {
         fi
     else
         echo "Error : $1 is not an available model for serial number generation. "
-        echo "Available Models : DS3615xs DS3617xs DS916+ DS918+ DS920+ DS3622xs+ FS6400 DVA3219 DVA3221 DS1621+"
+        echo "Available Models : DS3615xs DS3617xs DS916+ DS918+ DS920+ DS3622xs+ FS6400 DVA3219 DVA3221 DS1621+ DVA1622"
     fi
 
 }
@@ -1478,6 +1597,10 @@ function beginArray() {
         serialstart="1930 1940"
         ;;
     DVA3221)
+        permanent="SJR"
+        serialstart="2030 2040 20C0 2150"
+        ;;
+    DVA1622)
         permanent="SJR"
         serialstart="2030 2040 20C0 2150"
         ;;
@@ -1551,6 +1674,9 @@ function generateSerial() {
         serialnum=$(toupper "$(echo "$serialstart" | tr ' ' '\n' | sort -R | tail -1)$permanent"$(generateRandomLetter)$(generateRandomValue)$(generateRandomValue)$(generateRandomValue)$(generateRandomValue)$(generateRandomLetter))
         ;;
     DVA3221)
+        serialnum=$(toupper "$(echo "$serialstart" | tr ' ' '\n' | sort -R | tail -1)$permanent"$(generateRandomLetter)$(generateRandomValue)$(generateRandomValue)$(generateRandomValue)$(generateRandomValue)$(generateRandomLetter))
+        ;;
+    DVA1622)
         serialnum=$(toupper "$(echo "$serialstart" | tr ' ' '\n' | sort -R | tail -1)$permanent"$(generateRandomLetter)$(generateRandomValue)$(generateRandomValue)$(generateRandomValue)$(generateRandomValue)$(generateRandomLetter))
         ;;
     esac
@@ -1742,9 +1868,9 @@ Version : $rploaderver
 
 Usage: ${0} <action> <platform version> <static or compile module> [extension manager arguments]
 
-Actions: build, ext, download, clean, update, listmod, serialgen, identifyusb, patchdtc, 
+Actions: build, ext, download, clean, update, fullupgrade, listmod, serialgen, identifyusb, patchdtc, 
 satamap, backup, backuploader, restoreloader, restoresession, mountdsmroot, postupdate,
-mountshare, version, help
+mountshare, version, monitor, getgrubconf, help
 
 ----------------------------------------------------------------------------------------
 Available platform versions:
@@ -1765,7 +1891,7 @@ Usage: ${0} <action> <platform version> <static or compile module> [extension ma
 
 Actions: build, ext, download, clean, update, listmod, serialgen, identifyusb, patchdtc, 
 satamap, backup, backuploader, restoreloader, restoresession, mountdsmroot, postupdate, 
-mountshare, version, help 
+mountshare, version, monitor, help 
 
 - build <platform> <option> : 
   Build the 💊 RedPill LKM and update the loader image for the specified platform version and update
@@ -1791,13 +1917,17 @@ mountshare, version, help
   
 - update : 
   Checks github repo for latest version of rploader, and prompts you download and overwrite
+
+- fullupgrade : 
+  Performs a full upgrade of the local files to the latest available on the repo. It will
+  backup the current filed under /home/tc/old
   
 - listmods <platform>:
   Tries to figure out any required extensions. This usually are device modules
   
 - serialgen <synomodel> <option> :
   Generates a serial number and mac address for the following platforms 
-  DS3615xs DS3617xs DS916+ DS918+ DS920+ DS3622xs+ FS6400 DVA3219 DVA3221 DS1621+
+  DS3615xs DS3617xs DS916+ DS918+ DS920+ DS3622xs+ FS6400 DVA3219 DVA3221 DS1621+ DVA1622
   
   Valid Options :  realmac , keeps the real mac of interface eth0
   
@@ -1837,6 +1967,13 @@ mountshare, version, help
   Prints rploader version and if the history option is passed then the version history is listed.
 
   Valid Options : history, shows rploader release history.
+
+- monitor :
+  Prints system statistics related to TCRP loader 
+
+- getgrubconf :
+  Checks your user_config.json file variables against current grub.cfg variables and updates your
+  user_config.json accordingly
   
 - help:           Show this page
 
@@ -1874,8 +2011,7 @@ function gitdownload() {
         git pull
         cd /home/tc
     else
-        git clone -b $LKM_BRANCH "$LKM_SOURCE_URL" redpill-lkm
-		sudo chmod -R 777 redpill-lkm
+        git clone -b $LKM_BRANCH "$LKM_SOURCE_URL"
     fi
 
     if [ -d redpill-load ]; then
@@ -1884,8 +2020,7 @@ function gitdownload() {
         git pull
         cd /home/tc
     else
-        git clone -b $LD_BRANCH "$LD_SOURCE_URL" redpill-load
-		sudo chmod -R 777 redpill-load
+        git clone -b $LD_BRANCH "$LD_SOURCE_URL"
     fi
 
 }
@@ -1926,6 +2061,8 @@ function getstaticmodule() {
         SYNOMODEL="dva3221_$TARGET_REVISION"
     elif [ "${TARGET_PLATFORM}" = "geminilake" ]; then
         SYNOMODEL="ds920p_$TARGET_REVISION"
+    elif [ "${TARGET_PLATFORM}" = "dva1622" ]; then
+        SYNOMODEL="dva1622_$TARGET_REVISION"
     fi
 
     echo "Looking for redpill for : $SYNOMODEL "
@@ -2236,7 +2373,7 @@ function getvars() {
 
         echo "bspatch does not exist, bringing over from repo"
 
-        curl --location "https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/bspatch" -O
+        curl --location "https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/develop/tools/bspatch" -O
 
         chmod 777 bspatch
         sudo mv bspatch /usr/local/bin/
@@ -2259,7 +2396,7 @@ function getvars() {
         KERNEL_MAJOR="3"
         MODULE_ALIAS_FILE="modules.alias.3.json"
         ;;
-    apollolake | broadwell | broadwellnk | v1000 | denverton | geminilake)
+    apollolake | broadwell | broadwellnk | v1000 | denverton | geminilake | dva1622)
         KERNEL_MAJOR="4"
         MODULE_ALIAS_FILE="modules.alias.4.json"
         ;;
@@ -2279,6 +2416,8 @@ function getvars() {
         SYNOMODEL="dva3221_$TARGET_REVISION" && MODEL="DVA3221"
     elif [ "${TARGET_PLATFORM}" = "geminilake" ]; then
         SYNOMODEL="ds920p_$TARGET_REVISION" && MODEL="DS920+"
+    elif [ "${TARGET_PLATFORM}" = "dva1622" ]; then
+        SYNOMODEL="dva1622_$TARGET_REVISION" && MODEL="DVA1622"
     fi
 
     #echo "Platform : $platform_selected"
@@ -2596,7 +2735,7 @@ interactive)
     if [ -f interactive.sh ]; then
         . ./interactive.sh
     else
-        curl --location --progress-bar "https://gitee.com/gebi1/pocopico-tinycore-redpill/raw/main/interactive.sh" --output interactive.sh
+        curl --location --progress-bar "https://github.com/pocopico/tinycore-redpill/raw/$build/interactive.sh" --output interactive.sh
         . ./interactive.sh
         exit 99
     fi
@@ -2655,6 +2794,14 @@ version)
 help)
     showhelp
     exit 99
+    ;;
+monitor)
+    monitor
+    exit 0
+    ;;
+getgrubconf)
+    getgrubconf
+    exit 0
     ;;
 *)
     showsyntax
